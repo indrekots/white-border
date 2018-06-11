@@ -4,6 +4,7 @@ import sys, os
 
 BORDER_RATIO = 11.52
 WHITE_BORDER_FOLDER = 'whiteBorder'
+JPEG_QUALITY = 100
 
 def isJpeg(fileName):
     return '.jpg' in fileName or '.jpeg' in fileName
@@ -21,7 +22,7 @@ def addWhiteBorder(fileName):
     if not os.path.exists(WHITE_BORDER_FOLDER):
         os.makedirs(WHITE_BORDER_FOLDER)
 
-    newImage.save(WHITE_BORDER_FOLDER + '/' + fileName)
+    newImage.save(WHITE_BORDER_FOLDER + '/' + fileName, quality=JPEG_QUALITY)
 
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 for f in files:
